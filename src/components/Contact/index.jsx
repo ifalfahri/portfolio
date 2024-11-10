@@ -16,7 +16,7 @@ export default function index() {
     const y = useTransform(scrollYProgress, [0, 1], [-500, 0])
     const rotate = useTransform(scrollYProgress, [0, 1], [120, 90])
 
-    const [time, setTime] = useState(new Date());
+    const [time, setTime] = useState(null);
 
     // Update time every second
     useEffect(() => {
