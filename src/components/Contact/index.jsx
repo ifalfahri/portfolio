@@ -1,5 +1,6 @@
 import styles from './style.module.scss';
 import Image from 'next/image';
+import { useState, useEffect } from 'react';
 import Rounded from '../../common/RoundedButton';
 import { useRef } from 'react';
 import { useScroll, motion, useTransform, useSpring } from 'framer-motion';
@@ -14,6 +15,26 @@ export default function index() {
     const x = useTransform(scrollYProgress, [0, 1], [0, 100])
     const y = useTransform(scrollYProgress, [0, 1], [-500, 0])
     const rotate = useTransform(scrollYProgress, [0, 1], [120, 90])
+
+    const [time, setTime] = useState(new Date());
+
+    // Update time every second
+    useEffect(() => {
+        const updateTime = () => setTime(new Date());
+        updateTime(); // set initial time on mount
+        const interval = setInterval(updateTime, 1000); // update time every second
+
+        return () => clearInterval(interval); // Clear interval on unmount
+    }, []);
+
+    // Format the time as HH:MM:SS
+    const formattedTime = time.toLocaleTimeString('en-GB', {
+        hour: '2-digit',
+        minute: '2-digit',
+        second: '2-digit',
+        hour12: false
+    });
+
     return (
         <motion.div style={{y}} ref={container} className={styles.contact}>
             <div className={styles.body}>
@@ -48,7 +69,7 @@ export default function index() {
                         </span>
                         <span>
                             <h3>Time</h3>
-                            <p>11:49 PM GMT+2</p>
+                            <p>{formattedTime}</p>
                         </span>
                     </div>
                     <div>
