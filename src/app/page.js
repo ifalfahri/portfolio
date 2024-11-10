@@ -14,14 +14,14 @@ export default function Home() {
 
   return (
     <main>
-      {/* <AnimatePresence mode='wait'>
+      <AnimatePresence mode='wait'>
         {isLoading && <Preloader />}
       </AnimatePresence>
       <Landing />
       <Description />
       <Projects />
       <SlidingImages />
-      <Contact /> */}
+      <Contact />
     </main>
   )
 }
