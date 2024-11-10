@@ -3,7 +3,7 @@ import { useEffect, useLayoutEffect, useRef, useState } from 'react';
 import styles from './style.module.scss';
 import { usePathname } from 'next/navigation';
 import { AnimatePresence } from 'framer-motion';
-
+import Nav from './nav';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import Rounded from '../../common/RoundedButton';
@@ -39,19 +39,19 @@ export default function index() {
                 <p className={styles.copyright}>©</p>
                 <div className={styles.name}>
                     <p className={styles.ifal}>Ifal</p>
-                    <p className={styles.fahri}>Fahri</p>
+                    <p className={styles.fahria}>Fahri A</p>
                 </div>
             </div>
             <div className={styles.nav}>
                 <Magnetic>
                     <div className={styles.el}>
-                        <a>Work</a>
+                        <a>About</a>
                         <div className={styles.indicator}></div>
                     </div>
                 </Magnetic>
                 <Magnetic>
                     <div className={styles.el}>
-                        <a>About</a>
+                        <a>Work</a>
                         <div className={styles.indicator}></div>
                     </div>
                 </Magnetic>
