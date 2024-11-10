@@ -28,12 +28,12 @@ export default function index() {
     }, []);
 
     // Format the time as HH:MM:SS
-    const formattedTime = time.toLocaleTimeString('en-GB', {
+    const formattedTime = time ? time.toLocaleTimeString('en-US', {
         hour: '2-digit',
         minute: '2-digit',
         second: '2-digit',
-        hour12: false
-    });
+        hour12: true
+    }).toUpperCase() : 'Loading...';
 
     return (
         <motion.div style={{y}} ref={container} className={styles.contact}>
